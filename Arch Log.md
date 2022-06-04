@@ -7,3 +7,16 @@
 ```
 go env -w GOPROXY=https://goproxy.cn
 ```
+
+### 安装Windows字体
+
+复制Windows的字体文件到`/usr/share/fonts/Winfonts/`下，删除`.fon`文件，保留`.ttf`和`.ttc`文件，然后：
+```
+sudo mkfontscale
+sudo mkfontdir
+fc-cache -fv
+```
+
+### RStudio 启动白屏
+
+**解决办法** 在`/usr/share/applications/rstudio.desktop`中加入启动参数： `-no--sandbox`
