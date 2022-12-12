@@ -25,11 +25,20 @@
 
 我没找到把新旧版本混在一直的方法，因此保留了两个版本，只用旧版本的wpspdf
 
-4. 复制`/usr/lib/office6`文件夹到其他目录（放软件的目录，或者直接改名为`office6_old`）
+4. 复制`/usr/lib/office6`文件夹到其他目录（放软件的目录）
 
 5. 从aur更新wps到最新版本
 
-6. 修改`/usr/bin/wpspdf`，注释掉里面的内容，写入第四步复制的`office6_old`的路径，例如：
+6. 修改`/usr/bin/wpspdf`，注释掉下面的内容
+    ```bash
+    gBinPath=$(dirname "$0")
+    if [ -d "${gBinPath}/office6" ]; then
+	    gInstallPath=${gBinPath}
+    else
+	    gInstallPath=/usr/lib
+    fi
     ```
-    /usr/lib/office6_old/wpspdf
+    把`gInstallPath`改成第四步复制的`office6`的父路径，例如：
+    ```bash
+    /home/user/Applications/wps-office_11.1.0.10161_amd64/
     ```
