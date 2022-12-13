@@ -17,3 +17,18 @@ git@github.com: Permission denied (publickey).
 ssh-add "私钥路径"
 ```
 私钥路径通常为`/home/user/.ssh/filename`
+
+**如果仍然出现上述错误，可能是电脑有多个ssh密玥？**
+参考：https://zhuanlan.zhihu.com/p/281094708
+
+编辑`~/.ssh/config`（如无则新建文件），添加以下内容：
+```
+Host github.com
+	User git
+	HostName github.com
+	PreferredAuthentications publickey
+	IdentityFile ~/.ssh/github
+	ServerAliveInterval 300
+	ServerAliveCountMax 10
+
+```
