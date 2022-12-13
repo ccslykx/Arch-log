@@ -14,7 +14,7 @@
     diskpart #进入DISKPART
     list vol #查看卷标，找到EFI分区
     #如果 EFI没有卷标
-    seletc vol 0 #假如EFI分区是volume0
+    select vol 0 #假如EFI分区是volume0
     assgin letter=E: #分配盘符E,E应该为未分配盘符
     #果如
     exit #退出DISKPART

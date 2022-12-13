@@ -31,6 +31,20 @@ fc-cache -fv
 
 安装 `pulseaudio-bluetooth` 。
 
+参见 https://bbs.archlinux.org/viewtopic.php?pid=1715239#p1715239
+
+edit `/etc/pulse/default.pa` and add **before** the `if...udev` conditional block
+
+```
+load-module module-switch-on-connect
+```
+
+and restart pulse
+
+```
+systemctl --user restart pulseaudio
+```
+
 ### 更新报签名错误
 
 ```
