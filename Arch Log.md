@@ -65,3 +65,22 @@ systemctl --user restart pulseaudio
 ```
 sudo pacman -S archlinux-keyring
 ```
+
+## 2022-12-21 
+
+- 安装`UxPlay`(Airplay Server)
+- 启动`avahi-daemon`服务
+    ```
+    sudo systemctl enable avahi-daemon
+    sudo systemctl start avahi-daemon
+    ```
+- 
+
+## 2022-1-10
+
+### 在`xfce`环境下，禁用按住`alt`键拖动窗口
+
+https://forum.xfce.org/viewtopic.php?id=2989
+> following worked for me
+> 1. type xfce4-settings-manager in terminal and then click 'settings editor'
+> 2. then to the left click xfwm4 channel then in the right pane change the value of `easy_click`  from `Alt` to nothing
